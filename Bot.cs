@@ -20,7 +20,7 @@ namespace PrinterTgBot
     /// </summary>
     internal class Bot
     {
-        private static string Token = "6972183543:AAH9Mjc1f3nCS__rb8ZTsO5JMbUM2wW9-7k";
+        private static string Token=YOUR API TOKEN";
         TelegramBotClient botClient;
         Telegram.Bot.Types.User me;
         ReplyKeyboardMarkup replyKeyboard;
@@ -154,12 +154,8 @@ namespace PrinterTgBot
                     }
 
                 }
-                else if (message.Document != null)
+                if (message.Document != null)
                 {
-                    /*
-                    Console.WriteLine("Перешёл в приём файла");
-                    await Console.Out.WriteLineAsync($"{message.Document.FileName}");
-                    */
 
                     var fileId = message.Document.FileId;
                     var fileInfo = await botClient.GetFileAsync(fileId);
@@ -177,10 +173,8 @@ namespace PrinterTgBot
                     await client.SendTextMessageAsync(message.Chat.Id, "Файл распечатан!",
                         replyMarkup: replyKeyboard, cancellationToken: cancellationToken);
                 }
-                else
-                {
-                    Console.WriteLine("перешёл фиг знает куда");
-                }
+                
+               
 
                 return;
             }
